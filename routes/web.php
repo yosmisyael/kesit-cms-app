@@ -20,3 +20,23 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about', ['title' => 'About']);
 });
+
+Route::get('/article', function () {
+    return view('posts', ['title' => 'Articles']);
+});
+
+Route::get('/article/detail', function () {
+    return view('article', ['title' => 'article detail']);
+});
+
+Route::get('/login', function () {
+    return view('login', ['title' => 'Login']);
+});
+
+Route::get('/register', function () {
+    return view('register', ['title' => 'Register']);
+});
+
+Route::get('/user', function () {
+    return view('userDashboard', ['title' => 'Dashboard']);
+});
