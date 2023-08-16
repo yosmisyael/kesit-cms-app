@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,20 +17,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('homepage', ['title' => 'Homepage']);
+    return view('homepage', [
+        'title' => 'Homepage',
+        'active' => 'home'
+    ]);
 });
 
 Route::get('/about', function () {
-    return view('about', ['title' => 'About']);
+    return view('about', [
+        'title' => 'About',
+        'active' => 'about'
+    ]);
 });
 
-Route::get('/article', function () {
-    return view('posts', ['title' => 'Articles']);
-});
+Route::get('/article', [PostController::class, 'index']);
 
-Route::get('/article/detail', function () {
-    return view('article', ['title' => 'article detail']);
-});
+Route::get('/article/{post:slug}', [PostController::class, 'get']);
+
+Route::get('/category/{category:slug}', [CategoryController::class, 'index']);
+
+Route::get('/author/{user:username}', [UserController::class, 'index']);
 
 Route::get('/login', function () {
     return view('login', ['title' => 'Login']);

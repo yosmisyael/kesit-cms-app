@@ -7,10 +7,11 @@
     <div class="col-lg-6 px-0">
       <h1 class="display-4">Title of a longer featured blog post</h1>
       <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-      <p class="lead mb-0"><a href="#" class="text-body-emphasis fw-bold">Continue reading...</a></p>
+      <p class="lead mb-0"><a href="#" class="text-body-emphasis fw-bold text-decoration-none">Continue reading...</a></p>
     </div>
   </div>
 
+  <h2>Latest Article</h2>
   <div class="row mb-2">
     <div class="col-md-6">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -19,7 +20,7 @@
           <h3 class="mb-0">Featured post</h3>
           <div class="mb-1 text-body-secondary">Nov 12</div>
           <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link text-decoration-none">
             Continue reading
             <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
           </a>
@@ -36,7 +37,7 @@
           <h3 class="mb-0">Post title</h3>
           <div class="mb-1 text-body-secondary">Nov 11</div>
           <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+          <a href="#" class="icon-link gap-1 icon-link-hover stretched-link text-decoration-none">
             Continue reading
             <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
           </a>
