@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,13 +40,11 @@ Route::get('/category/{category:slug}', [CategoryController::class, 'index']);
 
 Route::get('/author/{user:username}', [UserController::class, 'index']);
 
-Route::get('/login', function () {
-    return view('login', ['title' => 'Login']);
-});
+Route::get('/login', [LoginController::class, 'index']);
 
-Route::get('/register', function () {
-    return view('register', ['title' => 'Register']);
-});
+Route::get('/register', [RegisterController::class, 'index']);
+
+Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('/user', function () {
     return view('userDashboard', ['title' => 'Dashboard']);

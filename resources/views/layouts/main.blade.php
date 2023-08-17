@@ -9,7 +9,9 @@
     <title>{{ $title }}</title>
 </head>
 <body>
-    @include('partials.navbar')
+    @if (in_array(Route::currentRouteName(), ['login', 'register']))
+        @include('partials.navbar')
+    @endif
 
     <div class="container mt-4">
         @yield('container')

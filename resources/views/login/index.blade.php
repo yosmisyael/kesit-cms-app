@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('container')
-<section class="vh-100">
+<section class="vh-100 d-flex align-items-center">
   <div class="container-fluid h-custom">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-9 col-lg-6 col-xl-5">
@@ -9,6 +9,12 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        @if (session()->has('success'))
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ session('success') }}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        @endif
         <form>
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Sign in with</p>
@@ -30,27 +36,20 @@
           </div>
 
           <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
+          <div class="form-outline form-floating mb-4">
+            <input type="email" id="form3Example3" name="email" class="form-control form-control-lg"
               placeholder="Enter a valid email address" />
             <label class="form-label" for="form3Example3">Email address</label>
           </div>
 
           <!-- Password input -->
-          <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
+          <div class="form-outline form-floating mb-3">
+            <input type="password" id="form3Example4" name="password" class="form-control form-control-lg"
               placeholder="Enter password" />
             <label class="form-label" for="form3Example4">Password</label>
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-                Remember me
-              </label>
-            </div>
             <a href="#!" class="text-body">Forgot password?</a>
           </div>
 
