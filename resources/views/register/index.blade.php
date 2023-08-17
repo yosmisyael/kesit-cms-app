@@ -17,7 +17,7 @@
             <input type="email" id="email" name="email" class="form-control form-control-lg @error('email')
               is-invalid
             @enderror"
-              placeholder="Enter a valid email address" required required value="{{ old('email') }}" />
+              placeholder="Enter a valid email address" required value="{{ old('email') }}" />
             <label class="form-label" for="email">Email address</label>
             @error('email')
               <div class="invalid-feedback">

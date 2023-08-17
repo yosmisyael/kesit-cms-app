@@ -29,7 +29,7 @@
                 <strong class="d-inline-block mb-2 text-success-emphasis"><a href="/article?category={{ $post->category->slug }}" class="text-decoration-none text-primary">{{ $post->category->name }}</a></strong>
                 <h3 class="mb-0">{{ $post->title }}</h3>
                 <div class="mb-1 text-body-secondary">{{ $post->created_at }}</div>
-                <p class="mb-auto">{{ $post->excerpt }}</p>
+                <p class="mb-auto">{!! $post->excerpt !!}</p>
                 <a href="/article/{{ $post->slug }}" class="icon-link gap-1 icon-link-hover stretched-link text-decoration-none">
                   Continue reading
                   <svg class="bi"><use xlink:href="#chevron-right"></use></svg>
