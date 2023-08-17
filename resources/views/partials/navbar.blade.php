@@ -18,9 +18,29 @@
           <a class="nav-link {{ $active === 'about' ? 'active fw-bold' : '' }}" href="/about">ABOUT</a>
         </li>
       </ul>
-      <a href="/login">
-        <button class="btn btn-dark fw-bold" type="submit">JOIN US</button>
-      </a>
+      @auth
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Welcome back, {{ auth()->user()->name }}
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/dashboard"><i class="bi bi-person-badge"></i> Dashboard</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <form action="/logout" method="post">
+                @csrf
+                <button class="dropdown-item" type="submit"><i class="bi bi-box-arrow-left"></i> Logout</button>
+              </form>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      @else
+        <a href="/login">
+          <button class="btn btn-dark fw-bold" type="submit">JOIN US</button>
+        </a>
+      @endauth
     </div>
   </div>
 </nav>
