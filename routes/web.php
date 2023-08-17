@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardPostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RegisterController;
@@ -42,14 +42,23 @@ Route::get('/category/{category:slug}', [CategoryController::class, 'index']);
 Route::get('/author/{user:username}', [UserController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+
 Route::post('/login', [LoginController::class, 'authenticate']);
+
 Route::post('/logout', [LoginController::class, 'logout']);
 
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
+
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::get('/dashboard', function () {
+    return view('dashboard.index', [
+        'title' => 'Dashboard'
+    ]);
+})->middleware('auth');
 
-Route::get('/user', function () {
-    return view('userDashboard', ['title' => 'Dashboard']);
-});
+Route::get('dashboard/post/createSlug', [DashboardPostController::class, 'generateSlug'])->middleware('auth');
+
+Route::resource('/dashboard/post', DashboardPostController::class)->middleware('auth');
+
+Route::resource('/dashboard/post/', DashboardPostController::class)->middleware('auth');
