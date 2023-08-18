@@ -27,10 +27,14 @@
                 <td>{{ $loop->iteration }}</td>
                 <td>{{ $post->title }}</td>
                 <td>{{ $post->category->name }}</td>
-                <td>
-                    <a href="/dashboard/post/{{ $post->slug }}" class="badge bg-info"><i class="bi bi-eye-fill"></i></a>
-                    <a href="/dashboard/post/{{ $post->id }}" class="badge bg-warning"><i class="bi bi-pencil-square"></i></a>
-                    <a href="/dashboard/post/{{ $post->id }}" class="badge bg-danger"><i class="bi bi-trash-fill"></i></a>
+                <td class="d-flex gap-2">
+                  <a href="/dashboard/post/{{ $post->slug }}" class="badge bg-info"><i class="bi bi-eye-fill"></i></a>
+                  <a href="/dashboard/post/{{ $post->id }}" class="badge bg-warning"><i class="bi bi-pencil-square"></i></a>
+                  <form class="d-inline" action="/dashboard/post/{{ $post->slug }}" method="post">
+                    @method('delete')
+                    @csrf
+                    <button class="badge bg-danger border-0" onclick="return confirm('are you sure?')"><i class="bi bi-trash-fill"></i></button>
+                  </form>
                 </td> 
             </tr>
         @endforeach

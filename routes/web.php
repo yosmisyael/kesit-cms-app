@@ -61,4 +61,3 @@ Route::get('dashboard/post/createSlug', [DashboardPostController::class, 'genera
 
 Route::resource('/dashboard/post', DashboardPostController::class)->middleware('auth');
 
-Route::resource('/dashboard/post/', DashboardPostController::class)->middleware('auth');

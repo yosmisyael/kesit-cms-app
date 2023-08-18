@@ -83,9 +83,11 @@ class DashboardPostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(post $post)
+    public function destroy(Post $post)
     {
-        //
+        Post::destroy($post->id);
+        
+        return redirect('/dashboard/post')->with('success', 'Your post has been deleted.');
     }
 
     public function generateSlug(Request $request)
