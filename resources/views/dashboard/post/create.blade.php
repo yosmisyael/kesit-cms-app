@@ -5,7 +5,7 @@
     <h1 class="h2">{{ $title }}</h1>
 </div>
 <div class="row">
-    <div class="col-lg-8">
+    <div class="col-lg-8 mb-3">
         <form action="/dashboard/post" method="post">
             @csrf
             <div class="mb-3">
