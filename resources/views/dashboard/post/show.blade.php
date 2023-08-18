@@ -9,8 +9,12 @@
             <p class="fst-italic">by {{ $data->author->name }}, {{ $data->created_at }}</p>
             <div class="d-flex gap-2 mb-2">
                 <a href="/dashboard/post" class="btn btn-primary"><i class="bi bi-arrow-90deg-left"></i> Back to Post List</a>
-                <a href="" class="btn btn-warning text-light"><i class="bi bi-pencil-square"></i> Edit</i></a>
-                <a href="" class="btn btn-danger"><i class="bi bi-trash-fill"></i> Delete</a>
+                <a href="/dashboard/post/{{ $data->slug }}/edit" class="btn btn-warning text-light"><i class="bi bi-pencil-square"></i> Edit</i></a>
+                <form class="d-inline" action="/dashboard/post/{{ $data->slug }}" method="post">
+                    @method('delete')
+                    @csrf
+                    <button class="btn btn-danger"><i class="bi bi-trash-fill"></i> Delete</button>
+                </form>
             </div>
             <!-- Main Content -->
             <div class="col-lg-9 mb-5">
